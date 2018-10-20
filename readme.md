@@ -23,4 +23,4 @@ From this data we can infer that London receives a net input of water during the
 Further discussion of the differences in the groundwater regimes in these specific locations is provided in [this paper](
 http://homepage.usask.ca/~ani378/papers/AIRESON_PROENV_SPA_2013.pdf), in particular in Figure 3, 4 and 5.
 
-Download and run the tool using Python 3/Jupyter notebook, to explore the hydrology of any major cities on the earth.
+Download and run the tool using Python 3/Jupyter notebook, to explore and compare the hydrology of any major cities on the earth.
