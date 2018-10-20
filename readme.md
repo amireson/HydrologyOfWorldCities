@@ -18,4 +18,7 @@ Again, due to the vicinitiy of the ocean, London has far more precipitation than
 
 ![Precipitation and potential evaporation in London and Saskatoon](Precip.png)
 
-For this data we can infer that London receives a net input of water during the winter months, when precipitation is high, relative to potential evaporation, and this is when most groundwater recharge and runoff generation will occur. Saskatoon also only experiences a postive net effective precipitation in the winter, but due to the low temperature, all the water is held up in the snowpack until the spring when melt occurs, providing the most significant input of water for soil and groundwater recharge and runoff generation in the year.
+For this data we can infer that London receives a net input of water during the winter months, when precipitation is high, relative to potential evaporation, and this is when most groundwater recharge and runoff generation will occur. In Saskatoon, average monthly precipitation never exceeds potential evaporation, but due to the low temperature in the winter, all the precipitation that does fall is held up in the snowpack until the spring when melt occurs, providing the most significant input of water for soil and groundwater recharge and runoff generation in the year.
+
+Further discussion of the differences in these specific locations is provided in [this paper](
+http://homepage.usask.ca/~ani378/Papers/AIRESON_PROENV_SPA_2013.pdf).
