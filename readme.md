@@ -6,7 +6,7 @@ This script is written in jupyter notebook, using python version 3.6
 
 # Example run: Saskatoon, Canada versus London, UK
 
-Here, outputs from this tool are shown for Saskatoon, Canada, and London, UK, using the three figures produced by the tool, and the discussion provides an example of these data can be used to draw insights about how the hydrology of these places works. Saskatoon and London provide a nice comparison, since these cities have almost exactly the same latitude (London is 51.5$^\circ$ N, Sasatoon is 52.1 $^\circ$ N):
+Here, outputs from this tool are shown for Saskatoon, Canada, and London, UK, using the three figures produced by the tool, and the discussion provides an example of these data can be used to draw insights about how the hydrology of these places works. Saskatoon and London provide a nice comparison, since these cities have almost exactly the same latitude (London is 51.5 deg N, Sasatoon is 52.1 deg N):
 
 ![World map showing London and Saskatoon](Map.png)
 
