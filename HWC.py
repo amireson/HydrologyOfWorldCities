@@ -8,7 +8,7 @@
 # 1. Global Institute for Water Security, University of Saskatchewan, Canada
 # 2. University of Durham, UK
 # 
-# ## Usage
+# ## Usage 
 # 
 # Run every block of code to import libraries and load functions. To modify cities, edit the block of code below the title "Run the Script:". 
 # 
@@ -199,10 +199,11 @@ def PlotP_PE(CityList,colors='rbgm'):
 
     pl.ylabel('Precip (mm/month)',fontsize=fs)
     pl.xlabel('Month',fontsize=fs)
-    pl.xticks(np.arange(0.5,13),mm,)
+    pl.xticks(np.arange(0.5,12),mm,)
     pl.xlim(0,12)
     pl.legend(fontsize=fs,loc=(0.5,-0.45))
-    pl.savefig('Precip.png',dpi=300)
+    pl.show()
+    #pl.savefig('Precip.png',dpi=300)
 
 def Tempplot(d,c):
     t=list(range(1,13))
@@ -223,10 +224,11 @@ def PlotT(CityList,colors='rbgm'):
 
     pl.ylabel('Average temperature range ($^\circ$C)',fontsize=fs)
     pl.xlabel('Month',fontsize=fs)
-    pl.xticks(np.arange(0.5,13),mm,)
+    pl.xticks(np.arange(0.5,12),mm,)
     pl.xlim(0,12)
     pl.legend(fontsize=fs,loc=(0.5,-0.35))
-    pl.savefig('Temp.png',dpi=300)
+    pl.show()
+    #pl.savefig('Temp.png',dpi=300)
 
 def PrintCityData(city):
     print('   R (mm), PE (mm)')
