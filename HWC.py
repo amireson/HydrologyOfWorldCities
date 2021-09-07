@@ -82,7 +82,8 @@ def GetStationData(cid):
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
     R=[float(data['city']['climate']['climateMonth'][i]['rainfall']) for i in range(12)]
-    Rd=[float(data['city']['climate']['climateMonth'][i]['raindays']) for i in range(12)]
+    #Rd=[float(data['city']['climate']['climateMonth'][i]['raindays']) for i in range(12)]
+    Rd=0.
     Tmax=[float(data['city']['climate']['climateMonth'][i]['maxTemp']) for i in range(12)]
     Tmin=[float(data['city']['climate']['climateMonth'][i]['minTemp']) for i in range(12)]
     Lat=float(data['city']['cityLatitude'])
