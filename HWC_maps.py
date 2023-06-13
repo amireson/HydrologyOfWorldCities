@@ -11,43 +11,24 @@
 # ## Usage
 # 
 # Run every block of code to import libraries and load functions. To modify cities, edit the block of code below the title "Run the Script:". 
-# 
-# 
-# ## To do:
-# 
-# * Refactor the code so that the user input is more intuitive and the plot functions do not need to be modified if the number of cities is modified.
 
 from matplotlib import pyplot as pl
 import numpy as np
-from mpl_toolkits.basemap import Basemap
-import json
-import urllib
-import sys
-import matplotlib as mpl
-mpl.style.use('ggplot')
-mpl.style.use('seaborn-notebook')
-
-# Function to get city altitudes
-from geopy.geocoders import Nominatim
-geocode=Nominatim().geocode
-
+import geopandas as gpd
     
 def Mapplot(d,c,map):
-    map.plot(d['Lon'],d['Lat'],'o'+c,alpha=0.3,markersize=8,latlon=True)
-    map.plot(d['Lon'],d['Lat'],'.'+c,markersize=5,latlon=True)
+    pl.scatter(d['Lon'],d['Lat'],c=c,s=30,alpha=0.3)
+    pl.scatter(d['Lon'],d['Lat'],c=c,s=3,alpha=1)
+    pl.text(d['Lon'],d['Lat'],'  %s'%d['city'])
     
 def PlotMap(CityList,colors='rbgm'):
-    pl.figure(figsize=(6,6))
-    map = Basemap(projection='merc',llcrnrlon=-185.,urcrnrlon=185.,llcrnrlat=-60,urcrnrlat=80.,rsphere=(6378137.00,6356752.3142))
-    # map.drawrivers(linewidth=0.25,color='blue')
-    map.drawcoastlines(linewidth=0.5)
-    # map.drawcountries(linewidth=0.5)
-    # map.drawstates()
+    worldmap = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+    fig, ax = pl.subplots(figsize=(12, 6))
+    worldmap.plot(color="darkgrey", ax=ax)
+
     for city,c in zip(CityList,colors):
         Mapplot(city,c,map)
 
     pl.savefig('Map.png',dpi=300)
-
-
 
 
