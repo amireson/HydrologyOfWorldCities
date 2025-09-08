@@ -223,7 +223,7 @@ def PlotT(CityList,colors='rbgm'):
     for city,c in zip(CityList,colors):
         Tempplot(city,c)
 
-    pl.ylabel('Average temperature range ($^\circ$C)',fontsize=fs)
+    pl.ylabel(r'Average temperature range ($^\circ$C)',fontsize=fs)
     pl.xlabel('Month',fontsize=fs)
     pl.xticks(np.arange(0.5,12),mm,)
     pl.xlim(0,12)
