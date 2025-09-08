@@ -25,7 +25,7 @@ import urllib
 import sys
 import matplotlib as mpl
 mpl.style.use('ggplot')
-mpl.style.use('seaborn-notebook')
+mpl.style.use('seaborn-v0_8')
 
 # # Function to get city altitudes
 # from geopy.geocoders import Nominatim
