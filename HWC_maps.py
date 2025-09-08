@@ -15,14 +15,16 @@
 from matplotlib import pyplot as pl
 import numpy as np
 import geopandas as gpd
-    
+import geodatasets
+
 def Mapplot(d,c,map):
     pl.scatter(d['Lon'],d['Lat'],c=c,s=30,alpha=0.3)
     pl.scatter(d['Lon'],d['Lat'],c=c,s=3,alpha=1)
     pl.text(d['Lon'],d['Lat'],'  %s'%d['city'])
     
 def PlotMap(CityList,colors='rbgm'):
-    worldmap = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+    path = geodatasets.get_path("naturalearth.land")
+    worldmap = gpd.read_file(path)
     fig, ax = pl.subplots(figsize=(12, 6))
     worldmap.plot(color="darkgrey", ax=ax)
 
