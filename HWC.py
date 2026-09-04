@@ -21,7 +21,7 @@ from matplotlib import pyplot as pl
 import numpy as np
 #from mpl_toolkits.basemap import Basemap
 import json
-import urllib
+import urllib.request
 import sys
 import matplotlib as mpl
 mpl.style.use('ggplot')
