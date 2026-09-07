@@ -21,7 +21,7 @@ from matplotlib import pyplot as pl
 import numpy as np
 #from mpl_toolkits.basemap import Basemap
 import json
-import urllib.request
+import requests
 import sys
 import matplotlib as mpl
 mpl.style.use('ggplot')
@@ -38,15 +38,20 @@ mpl.style.use('seaborn-v0_8')
 
 # In[ ]:
 
+def GetURL(url):
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    return response
 
 def FindCity(cityname,country=''):
-    # Find city ID from WMO datafile:
-    cities=urllib.request.urlopen('https://worldweather.wmo.int/en/json/full_city_list.txt')
-    cities.__iter__()
+
+    url = 'https://worldweather.wmo.int/en/json/full_city_list.txt'
+    cities = GetURL(url).text.splitlines()
+
+    cname = []
+    ccountry = []
+    cid = []
     
-    cname=[]
-    ccountry=[]
-    cid=[]
     for city in cities:
         citystr=str(city)[1:].replace('"','').replace("'","").replace('\\n','')
         if cityname.lower() in citystr.lower():
@@ -78,9 +83,9 @@ def FindCity(cityname,country=''):
 
 
 def GetStationData(cid):
-    url = "https://worldweather.wmo.int/en/json/%s_en.xml" % cid
-    response = urllib.request.urlopen(url)
-    data = json.loads(response.read())
+    url = f'https://worldweather.wmo.int/en/json/{cid}_en.xml'
+    data = GetURL(url).json()
+    
     R=[float(data['city']['climate']['climateMonth'][i]['rainfall']) for i in range(12)]
     #Rd=[float(data['city']['climate']['climateMonth'][i]['raindays']) for i in range(12)]
     Rd=0.
@@ -96,15 +101,21 @@ def GetStationData(cid):
 # Using the geopy library
 
 # In[ ]:
-
-
 def GetCityAltitude(d):
-    url = "https://maps.googleapis.com/maps/api/elevation/json?locations=%f,%f&key=%s"
-    my_api_key="AIzaSyB9fPCWj2bXeJZ6u0IwYYxKysKXaIXOBe4"
-    response = urllib.request.urlopen(url%(d['Lat'],d['Lon'],my_api_key))
-    data = json.loads(response.read())
-    return data['results'][0]['elevation']
+    url = 'https://api.open-meteo.com/v1/elevation'
 
+    response = requests.get(
+        url,
+        params={
+            'latitude': d['Lat'],
+            'longitude': d['Lon']
+        },
+        timeout=30
+    )
+    response.raise_for_status()
+
+    data = response.json()
+    return float(data['elevation'][0])
 
 # ## Function: Calculate Potential Evaporation
 # 
